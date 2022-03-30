@@ -1,6 +1,7 @@
 // node modules
 const express = require("express");
 const router = require("./controllers");
+const sequelize = require("./config/connection");
 
 // port
 const PORT = process.env.PORT || 3001;
