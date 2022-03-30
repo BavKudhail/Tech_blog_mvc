@@ -1,0 +1,22 @@
+<h3>Get a single post</h3>
+<div>
+  <h2>
+    <a href="/post/{{post.id}}">
+      <div>{{post.title}}</div>
+    </a>
+  </h2>
+  <div>
+    Posted by
+    {{post.user.username}}
+    on
+    {{format_date post.date}}</div>
+  <p>
+    {{post.content}}
+  </p>
+  <input type="text" value="{{post.id}}" />
+  <form action="">
+    <p>Comment:</p>
+    <textarea name="" id=""></textarea>
+    <button>Submit</button>
+  </form>
+</div>
