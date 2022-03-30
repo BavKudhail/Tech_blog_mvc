@@ -8,6 +8,10 @@ const PORT = process.env.PORT || 3001;
 // initialise express
 const app = express();
 
+// encode the data
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 // router
 app.use(router);
 
