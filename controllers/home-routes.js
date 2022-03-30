@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const { Post, Comment, User } = require("../models");
+const withAuth = require("../utils/auth");
 
 // home route
 
@@ -19,8 +20,8 @@ router.get("/", async (req, res) => {
   }
 });
 
-// Get a single post
-router.get("/post/:id", async (req, res) => {
+// Get a single post - withAuth middleware to prevent access
+router.get("/post/:id", withAuth, async (req, res) => {
   try {
     const postData = await Post.findOne({
       where: {
@@ -34,6 +35,28 @@ router.get("/post/:id", async (req, res) => {
     res.render("view-post", { post: post });
   } catch (error) {
     res.status(500).json(error);
+  }
+});
+
+// login route
+router.get("/login", (req, res) => {
+  // if user is logged in, redirect to dashboard
+  if (req.session.loggedIn) {
+    res.redirect("/dashboard");
+    return;
+  } else {
+    res.render("login");
+  }
+});
+
+// sign up route
+router.get("/signup", (req, res) => {
+  // if user is logged in, redirect to dashboard
+  if (req.session.loggedIn) {
+    res.redirect("/dashboard");
+    return;
+  } else {
+    res.render("signup");
   }
 });
 
