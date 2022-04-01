@@ -22,13 +22,18 @@ router.post("/", async (req, res) => {
   try {
     console.log("post request sent");
     //   create a new post
-    const newPost = await Post.create({ ...req.body });
+    const newPost = await Post.create({
+      ...req.body,
+      userId: req.session.userId,
+    });
     // send new post to client side
     res.json(newPost);
   } catch (error) {
     res.status(500).json(error);
   }
 });
+
+// if req.session.id == user.id - show edit button
 
 // UPDATE A POST
 router.put("/:id", async (req, res) => {

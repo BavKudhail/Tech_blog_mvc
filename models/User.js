@@ -38,8 +38,11 @@ User.init(
   {
     //   hooks
     hooks: {
+      // before 
       beforeCreate: async (newUserData) => {
+        // set password to a crypted version of that password
         newUserData.password = await bcrypt.hash(newUserData.password, 10);
+        // this is the student that will actually be created 
         return newUserData;
       },
       beforeUpdate: async (updatedUserData) => {

@@ -23,10 +23,14 @@ router.get("/", async (req, res) => {
 // CREATE A NEW COMMENT
 router.post("/", async (req, res) => {
   try {
+    // create a new comment
     const newComment = await Comment.create({
       ...req.body,
+      // set the user Id
+      userId: req.session.userId,
     });
     res.json(newComment);
+    console.log(newComment);
   } catch (error) {
     res.status(500).json(error);
   }

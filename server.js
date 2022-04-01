@@ -4,9 +4,12 @@ const session = require("express-session");
 const exphbs = require("express-handlebars");
 const path = require("path");
 
+// router
 const router = require("./controllers");
+// helper function
 const helpers = require("./utils/helpers");
 
+// sequelize connection
 const sequelize = require("./config/connection");
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
 
@@ -30,7 +33,7 @@ const sess = {
   store: store,
 };
 
-// use our session object
+// use our session object 
 app.use(session(sess));
 
 // Set up Handlebars.js engine with custom helpers

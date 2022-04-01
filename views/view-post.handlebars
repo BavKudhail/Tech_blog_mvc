@@ -1,4 +1,4 @@
-<h3>Get a single post</h3>
+<h3>Get a singlee post</h3>
 <div>
   <h2>
     <a href="/post/{{post.id}}">
@@ -6,17 +6,26 @@
     </a>
   </h2>
   <div>
-    Posted by
+    Posted by:
     {{post.user.username}}
     on
     {{format_date post.date}}</div>
   <p>
-    {{post.content}}
+    {{post.title}}
   </p>
-  <input type="text" value="{{post.id}}" />
-  <form action="">
+  <input id="hidden-input" type="hidden" value="{{post.id}}" />
+
+  <form id="comment-form">
     <p>Comment:</p>
-    <textarea name="" id=""></textarea>
-    <button>Submit</button>
+    <textarea name="" id="comment-content" cols="30" rows="10"></textarea>
+    <button type="submit" class="submit-btn">Submit</button>
   </form>
 </div>
+{{! post all comments below here }}
+<div>
+  <h1>Here will be the comments</h1>
+  {{post.id}}
+  {{! goal - render comments to the page }}
+  {{>comments post.comments}}
+</div>
+<script src="/js/comment.js"></script>

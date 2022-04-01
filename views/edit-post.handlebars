@@ -1,0 +1,19 @@
+{{! edit your post }}
+<div>
+  <h2>Edit your post</h2>
+  <form id="comment-form" action="">
+    <input type="hidden" id="post-id" value="{{post.id}}" />
+    <label for="">Title</label>
+    <input id="new-post-title" value="{{post.title}}" type="text" />
+    <label for="">Content:</label>
+    <textarea
+      name=""
+      id="new-post-content"
+      cols="30"
+      rows="10"
+    >{{post.content}}</textarea>
+    <button class="submit-btn">Update Post</button>
+  </form>
+  <button class="delete-btn">Delete Post</button>
+</div>
+<script src="/js/editpost.js"></script>

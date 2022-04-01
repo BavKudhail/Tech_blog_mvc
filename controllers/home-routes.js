@@ -2,7 +2,7 @@ const router = require("express").Router();
 const { Post, Comment, User } = require("../models");
 const withAuth = require("../utils/auth");
 
-// home route
+// home route ( / )
 
 // Get all posts for the homepage
 router.get("/", async (req, res) => {
@@ -27,12 +27,20 @@ router.get("/post/:id", withAuth, async (req, res) => {
       where: {
         id: req.params.id,
       },
-      include: [User, { model: Comment, include: [User] }],
+      include: [
+        // @TODO understand what the below code works as it does?
+        User,
+        {
+          model: Comment,
+          include: [User],
+        },
+      ],
     });
     // serialise the data
     const post = postData.get({ plain: true });
     // render post to front end
-    res.render("view-post", { post: post });
+    res.render("view-post", { post: post, loggedIn: req.session.loggedIn });
+    console.log(post.user);
   } catch (error) {
     res.status(500).json(error);
   }

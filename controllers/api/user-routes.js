@@ -20,17 +20,19 @@ router.get("/", async (req, res) => {
 // SIGN UP
 router.post("/", async (req, res) => {
   try {
+    // create a new user
     const newUser = await User.create({
       username: req.body.username,
       password: req.body.password,
     });
-    // save session
+    // save that user session
+    req.session.loggedIn = true;
     req.session.save(() => {
       req.session.userId = newUser.id;
       req.session.username = newUser.username;
-      req.session.password = newUser.password;
+      req.session.loggedIn = true;
+      res.json({ newUser, message: "Thank you for joining" });
     });
-    res.json(newUser);
   } catch (error) {
     res.status(500).json(error);
   }
@@ -39,6 +41,7 @@ router.post("/", async (req, res) => {
 // LOGIN
 router.post("/login", async (req, res) => {
   try {
+    // find a user when the username is  = to username
     const user = await User.findOne({
       where: {
         username: req.body.username,
@@ -49,6 +52,7 @@ router.post("/login", async (req, res) => {
       res.status(400).json({ message: "Oops. No account found!" });
       return;
     }
+    // check the password stored matches the password typed
     const password = user.checkPassword(req.body.password);
     // if the password does not exist
     if (!password) {
@@ -59,7 +63,9 @@ router.post("/login", async (req, res) => {
     req.session.save(() => {
       req.session.userId = user.id;
       req.session.username = user.username;
-      req.session.password = user.password;
+      req.session.loggedIn = true;
+
+      res.json({ user, message: "Welcome back!" });
     });
   } catch (error) {
     res.status(400).json({ message: "Oops. No account found!" });
@@ -73,6 +79,8 @@ router.post("/logout", (req, res) => {
     req.session.destroy(() => {
       res.status(204).end();
     });
+    res.loggedIn = false;
+    res.send("user logged out");
     // if the user is not logged in
   } else {
     res.status(404).end();
