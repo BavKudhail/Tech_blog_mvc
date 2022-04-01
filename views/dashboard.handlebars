@@ -1,13 +1,39 @@
-<h2>Your dashboard</h2>
+{{! header }}
+    <header>
+      <div class="m-10">
+        <div class="flex justify-center items-center text-center">
+          <div>
+            <h1 class="hero-section">Your Dashboard</h1>
+          </div>
+          <div>
+            <img
+              class="hand-point-down"
+              src="/images/thumbs-up.png"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="flex justify-center mb-5">
+      {{!-- create a new post --}}
+      <a href="/dashboard/create">
+        <button class="text-white bg-gradient-to-r from-purple-500 to-pink-500 hover:bg-gradient-to-l font-bold rounded-lg text-lg px-5 py-2.5 text-center mr-2 mb-2">
+            New Post
+          </button>
+      </a>
+    </div>
+{{!-- code below --}}
 
-<a href="/dashboard/create"><button>Create a new post</button></a>
-
-<h3>Your posts!</h3>
 {{#if posts.length}}
-<div>
+<div class="mx-44">
+<div class="flex flex-wrap justify-center">
   {{#each posts as |post|}}
-  {{> editItem post}}
+  <a href="dashboard/edit/{{id}}
+  ">
+  {{> editItem post}}</a>
   {{/each}}
+</div>
 </div>
 {{else}}
 <h5>You do not have any posts</h5>

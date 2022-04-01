@@ -1,27 +1,28 @@
+{{! @TODO - IS THERE A WAY TO MAKE EACH CARD A DIFFERENT COLOUR }}
+
+
+
 <div class="m-5 card-custom">
-  <div class="">
-    <div class="flex">
-      <span>Posted by: &nbsp </span>
-      <div class="text-base font-bold">
-        {{user.username}}
+  <div class="p-10">
+    <div class="flex justify-between">
+      <div class="flex">
+        <span>Posted by: &nbsp </span>
+        <div class="text-base font-bold">
+          {{user.username}}
+        </div>
+      </div>
+      <div class="flex">
+        <span>On: &nbsp</span>
+        <span class="text-base font-bold">{{format_date date}}</span>
       </div>
     </div>
-    <div>
-      <span>On: &nbsp</span>
-      <span class="text-base font-bold">{{format_date date}}</span>
-    </div>
-    <h2>
+    <h2 class="post-title">
       <a href="/post/{{id}}">
         <div>{{title}}</div>
       </a>
     </h2>
-    <div>posted by
-      {{user.username}}
-      on
-      {{format_date date}}
-    </div>
+    <p class="my-10">
+      {{content}}
+    </p>
   </div>
-  <p>
-    {{content}}
-  </p>
 </div>
