@@ -1,6 +1,20 @@
+{{! Header }}
+{{! header }}
+<header>
+  <div class="m-10">
+    <div class="flex justify-center items-center text-center">
+      <div>
+        <h1 class="hero-section">Edit your post</h1>
+      </div>
+      <div>
+        <img class="hand-point-down" src="/images/thumbs-up.png" alt="" />
+      </div>
+    </div>
+  </div>
+</header>
 {{! edit your post }}
-<div>
-  <h2>Edit your post</h2>
+
+<div class="form-container">
   <form id="comment-form" action="">
     <input type="hidden" id="post-id" value="{{post.id}}" />
     <label for="">Title</label>
@@ -17,3 +31,35 @@
   <button class="delete-btn">Delete Post</button>
 </div>
 <script src="/js/editpost.js"></script>
+
+{{! creating a new post }}
+<div class="form-container justify-center items-center lg:mx-44">
+  <form id="comment-form" class="" action="">
+    <input type="hidden" value="{{post.id}}" />
+    <div class="p-10">
+      <div class="flex justify-center input-box">
+        <input
+          id="new-post-title"
+          class="input-field"
+          placeholder="Title: "
+          type="text"
+        />
+      </div>
+      <div class="flex justify-center">
+        <textarea
+          name=""
+          placeholder="Type content here: "
+          id="new-post-content"
+          cols="30"
+          rows="10"
+          class="input-field"
+        ></textarea>
+      </div>
+      <div class="flex justify-center mt-5">
+        <button
+          class="submit-btn text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+        >Create Post</button>
+      </div>
+    </div>
+  </form>
+</div>

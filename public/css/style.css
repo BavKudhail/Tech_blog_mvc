@@ -35,3 +35,18 @@ body {
 .edit-btn {
   background-color: #4d43b4;
 }
+.form-container {
+  background-color: #eaecff;
+  margin: 5rem;
+  border-radius: 30px;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+.input-field {
+  background-color: #c3c8f5;
+  color: #1c1474;
+  width: 100%;
+  margin: 10px;
+  border-radius: 10px;
+}
