@@ -50,10 +50,10 @@ router.get("/post/:id", withAuth, async (req, res) => {
 router.get("/login", (req, res) => {
   // if user is logged in, redirect to dashboard
   if (req.session.loggedIn) {
-    res.redirect("/dashboard");
+    res.redirect("/dashboard", { loggedIn: req.session.loggedinIn });
     return;
   } else {
-    res.render("login");
+    res.render("login", { loggedIn: req.session.loggedinIn });
   }
 });
 
@@ -61,10 +61,10 @@ router.get("/login", (req, res) => {
 router.get("/signup", (req, res) => {
   // if user is logged in, redirect to dashboard
   if (req.session.loggedIn) {
-    res.redirect("/dashboard");
+    res.redirect("/dashboard", { loggedIn: req.session.loggedinIn });
     return;
   } else {
-    res.render("signup");
+    res.render("signup", { loggedIn: req.session.loggedinIn });
   }
 });
 

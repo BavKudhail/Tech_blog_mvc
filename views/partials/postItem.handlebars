@@ -1,5 +1,15 @@
-<div>
-  <div>
+<div class="m-5 card-custom">
+  <div class="">
+    <div class="flex">
+      <span>Posted by: &nbsp </span>
+      <div class="text-base font-bold">
+        {{user.username}}
+      </div>
+    </div>
+    <div>
+      <span>On: &nbsp</span>
+      <span class="text-base font-bold">{{format_date date}}</span>
+    </div>
     <h2>
       <a href="/post/{{id}}">
         <div>{{title}}</div>

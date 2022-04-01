@@ -54,7 +54,7 @@ app.use(express.static(path.join(__dirname, "public")));
 // router
 app.use(router);
 
-// when we have connected to sequelize only then listen to the server
+// when we have connected to sequelize only then listen to the
 sequelize.sync({ force: false }).then(() => {
   console.log("connected to MySQL");
   app.listen(PORT, () => {

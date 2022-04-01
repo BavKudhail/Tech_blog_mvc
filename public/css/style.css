@@ -1,3 +1,27 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap");
+
 body {
-  background: pink;
+  font-family: "DM Sans", sans-serif;
+}
+
+.hero-section {
+  font-size: 2rem;
+  font-weight: 900;
+}
+
+.hand-point-down {
+  width: 150px;
+}
+
+/* 24 px was max limit on tailwind hence custom class */
+.rounded-30 {
+  border-radius: 30px;
+}
+
+.card-custom {
+  height: 250px;
+  width: 500px;
+  border-radius: 30px;
+  background-color: #eaecff;
+  color: #4d43b4;
 }

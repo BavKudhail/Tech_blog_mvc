@@ -4,25 +4,56 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/style.css" />
-    {{! <script src="https://cdn.tailwindcss.com"></script> }}
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>Tech Blog</title>
   </head>
   <body>
     {{! navbar }}
-
-    <nav>
-      <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="/dashboard">Dashboard</a></li>
-        <button id="logout">Logout</button>
-        <li><a href="/login">Login</a></li>
+    <nav class="flex py-4 px-6 bg-white shadow justify-between">
+      <div class="m-2">
+        <a href="/"><img src="/images/Techtab-logo.png" alt="" /></a>
+      </div>
+      <ul class="flex items-center">
+        <li class="mx-5 font-semibold"><a href="/">Home</a></li>
+        <li class="mx-5 font-semibold"><a href="/dashboard">Dashboard</a></li>
+        {{! ========  Conditionally render Login / Logout links ============= }}
+        {{! @TODO DEBUG THIS }}
+        {{#if loggedIn}}
+          {{! logout button }}
+          <a
+            class="mx-5 text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl font-medium rounded-lg text-md px-5 py-2.5 text-center mr-2 mb-2"
+            id="logout"
+            href=""
+          >Logout</a>
+        {{else}}
+          {{! Login Button }}
+          <a
+            class="mx-5 text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:outline-none font-medium rounded-lg text-md px-5 py-2.5 text-center mr-2 mb-2"
+            id="logout"
+            href="/login"
+          >Log In</a>
+        {{/if}}
       </ul>
     </nav>
-
+    {{! header }}
     <header>
-
+      <div class="m-10">
+        <div class="flex justify-center items-center text-center">
+          <div>
+            <h1 class="hero-section">Keeping you up to date with the latest tech
+              news</h1>
+          </div>
+          <div>
+            <img
+              class="hand-point-down"
+              src="/images/hand-pointing-down.png"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
     </header>
-
+    {{! main body }}
     <main>
       {{{body}}}
     </main>
@@ -31,6 +62,7 @@
 
     </footer>
     <script src="/js/logout.js"></script>
+    <script src="/js/login.js"></script>
   </body>
 
 </html>

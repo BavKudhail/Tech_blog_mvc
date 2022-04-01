@@ -2,20 +2,17 @@ const Sequelize = require("sequelize");
 require("dotenv").config();
 
 let sequelize;
+// @NOTE: We are using JAWSDB to make our local SQL database available in the cloud
 
+// If we are connecting to production database, then
 if (process.env.JAWSDB_URL) {
   sequelize = new Sequelize(process.env.JAWSDB_URL);
 } else {
+  // else
   sequelize = new Sequelize(
-    //   database name
-    // "techblog_db",
     process.env.DB_NAME,
-    // user username
     process.env.DB_USER,
-    // "root",
-    // user password
     process.env.DB_PASSWORD,
-    // "",
     {
       host: "localhost",
       dialect: "mysql",

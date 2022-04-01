@@ -1,6 +1,10 @@
 {{!-- loop over each object in the posts array --}}
-<div>
+<div class="mx-44">
+  <div class="flex flex-wrap justify-center">
   {{#each posts as |post|}}
-  {{> postItem post}}
+  <div class="">
+    {{> postItem post}}
+  </div>
   {{/each}}
+</div>
 </div>

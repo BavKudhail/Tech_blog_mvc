@@ -30,12 +30,13 @@ router.post("/", async (req, res) => {
     res.json(newPost);
   } catch (error) {
     res.status(500).json(error);
-  }
+  }i
 });
 
 // if req.session.id == user.id - show edit button
 
 // UPDATE A POST
+// Get post based on the ID
 router.put("/:id", async (req, res) => {
   try {
     //   update post where id = req.params.id
