@@ -35,3 +35,24 @@ const commentFormHandler = async (event) => {
 };
 
 commentForm.addEventListener("submit", commentFormHandler);
+
+// Inactivity function
+const inactivityTime = () => {
+  let time;
+  const resetTimer = () => {
+    clearTimeout(time);
+    time = setTimeout(logout, 10000);
+  };
+  window.onload = resetTimer;
+  //   DOM
+  document.onmousemove = resetTimer;
+  document.onkeydown = resetTimer;
+
+  const logout = () => {
+    alert("Your session has timed out, please log in again ");
+  };
+};
+
+window.onload = function () {
+  inactivityTime();
+};

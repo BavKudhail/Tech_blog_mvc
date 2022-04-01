@@ -19,12 +19,14 @@ const PORT = process.env.PORT || 3001;
 // initialise express
 const app = express();
 
+// creating the store variable = to our sequalize store
 const store = new SequelizeStore({
   db: sequelize,
 });
 
 // session object
 const sess = {
+  // the secret is the key that will sign out cookie
   secret: "key that will sign cookie",
   cookie: {},
   resave: false,
@@ -33,7 +35,7 @@ const sess = {
   store: store,
 };
 
-// use our session object 
+// use our session object
 app.use(session(sess));
 
 // Set up Handlebars.js engine with custom helpers
@@ -45,13 +47,14 @@ app.set("view engine", "handlebars");
 
 // encode the data
 app.use(express.json());
+// TODO - what exactly do the below code do?
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 
 // router
 app.use(router);
 
-// listen to server
+// when we have connected to sequelize only then listen to the server
 sequelize.sync({ force: false }).then(() => {
   console.log("connected to MySQL");
   app.listen(PORT, () => {
