@@ -1,3 +1,4 @@
+// Login logic
 const loginFormHandler = async (event) => {
   event.preventDefault();
 
@@ -7,6 +8,7 @@ const loginFormHandler = async (event) => {
 
   console.log(`Executing login for ${usernameEl}`);
 
+  // If username and password are true
   if (usernameEl && passwordEl) {
     //   Send a POST request to the API endpoint
     const response = await fetch("/api/user/login", {

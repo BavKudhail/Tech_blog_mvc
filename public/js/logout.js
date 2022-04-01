@@ -1,5 +1,4 @@
 const logout = async () => {
-  console.log("clicked logout");
   // fetch request
   const response = await fetch("/api/user/logout", {
     method: "POST",

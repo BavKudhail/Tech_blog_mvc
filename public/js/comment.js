@@ -1,17 +1,19 @@
-// post Id
+// DOM Variables
 const postId = document.querySelector("#hidden-input").value;
 const commentForm = document.querySelector("#comment-form");
 const submitBtn = document.querySelector(".submit-btn");
 
 // comment form handler
 const commentFormHandler = async (event) => {
+  // prevent form from refreshing
   event.preventDefault();
+
+  // Place our comment inside a variable
   const comment = document.getElementById("comment-content").value;
-  console.log(postId);
-  console.log(comment);
+
   //   if there is a comment
   if (comment) {
-    console.log("req sent");
+    // execute the POST request
     const response = await fetch("/api/comment", {
       method: "POST",
       body: JSON.stringify({
@@ -22,7 +24,7 @@ const commentFormHandler = async (event) => {
         "Content-Type": "application/json",
       },
     });
-    // if the response is okay then reload the document
+    // If resonse is successful reload the page - else - alert
     if (response.ok) {
       document.location.reload();
     } else {

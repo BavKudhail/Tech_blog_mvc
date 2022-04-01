@@ -1,28 +1,21 @@
-// get the post title
-// get the post content
-// update the post and return user to dashboard
-
-// comment form
+// DOM Variables
 const commentForm = document.querySelector("#comment-form");
 const submitBtn = document.querySelector(".submit-btn");
 const postId = document.querySelector("#post-id").value;
 const deleteBtn = document.querySelector(".delete-btn");
 
-console.log(deleteBtn);
-
-console.log(postId);
-
 // comment form handler
 const commentFormHandler = async (event) => {
+  // prevent form from refreshing on submit
   event.preventDefault();
 
-  // create variables
+  // Place title and content value into variables
   const title = document.querySelector("#new-post-title").value;
   const content = document.querySelector("#new-post-content").value;
 
-  // if post title & post content are true
+  // If post title & post content are true
   if (title && content) {
-    // create a post request to create a new post
+    //  Send a PUT request
     const response = await fetch(`/api/post/${postId}`, {
       method: "PUT",
       body: JSON.stringify({
@@ -33,20 +26,22 @@ const commentFormHandler = async (event) => {
         "Content-Type": "application/json",
       },
     });
+    // If response is successful redirect user to dashboard else alert
     if (response.ok) {
-      // redirect user to dashboard
       document.location.replace("/dashboard");
     } else {
-      // else alert
       alert(response.statusText);
     }
   }
 };
 
+// Delete post function
 const deletePost = async () => {
+  // Send DELETE request
   const response = await fetch(`/api/post/${postId}`, {
     method: "DELETE",
   });
+  // Redirect user to dashboard
   document.location.replace("/dashboard");
 };
 

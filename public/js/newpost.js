@@ -1,5 +1,4 @@
-console.log("hello");
-// comment form
+// DOM variables
 const commentForm = document.querySelector("#comment-form");
 const submitBtn = document.querySelector(".submit-btn");
 
@@ -7,13 +6,13 @@ const submitBtn = document.querySelector(".submit-btn");
 const commentFormHandler = async (event) => {
   event.preventDefault();
 
-  // create variables
+  // Place new post title and content into variables
   const title = document.querySelector("#new-post-title").value;
   const content = document.querySelector("#new-post-content").value;
 
   // if post title & post content are true
   if (title && content) {
-    // create a post request to create a new post
+    // Send POST request to endpoint
     const response = await fetch("/api/post", {
       method: "POST",
       body: JSON.stringify({
@@ -53,6 +52,6 @@ const inactivityTime = () => {
   };
 };
 
-window.onload = function () {
-  inactivityTime();
-};
+// window.onload = function () {
+//   inactivityTime();
+// };
