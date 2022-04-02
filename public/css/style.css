@@ -50,3 +50,11 @@ body {
   margin: 10px;
   border-radius: 10px;
 }
+
+.comment-form {
+  background-color: #eaecff;
+}
+
+.comment-box {
+  background-color: #c3c8f5;
+}

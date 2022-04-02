@@ -1,12 +1,17 @@
 <div>
   {{#each this}}
-    <div>
-      {{user.username}}
-      on
-      {{format_date date}}
-    </div>
-    <div>
-      {{comment}}
+    <div class="comment-box m-5 p-5 rounded-30">
+      <div class="flex justify-end">
+        Posted by &nbsp
+        <span class="font-bold">
+          {{user.username}}
+        </span>
+        &nbsp on
+        {{format_date date}}
+      </div>
+      <div>
+        {{comment}}
+      </div>
     </div>
   {{/each}}
 </div>
