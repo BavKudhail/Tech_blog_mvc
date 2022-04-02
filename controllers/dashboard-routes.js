@@ -22,7 +22,7 @@ router.get("/", withAuth, async (req, res) => {
     // serialise the data
     const posts = postData.map((post) => post.get({ plain: true }));
     // render the view out to the page
-    res.render("dashboard", { posts, loggedIn: true });
+    res.render("dashboard", { posts, loggedIn: true});
   } catch (error) {
     res.redirect("login");
   }
@@ -40,7 +40,7 @@ router.get("/edit/:id", withAuth, async (req, res) => {
     });
     // serialise the data
     const post = postData.get({ plain: true });
-    res.render("edit-post", { post });
+    res.render("edit-post", { post, loggedin:true });
   } catch (error) {
     res.redirect("login")
   }
@@ -48,7 +48,7 @@ router.get("/edit/:id", withAuth, async (req, res) => {
 
 router.get("/create", withAuth, async (req, res) => {
   try {
-    res.render("create-post");
+    res.render("create-post", { loggedin: true});
   } catch (error) {}
 });
 

@@ -34,7 +34,7 @@
           id="logout"
           href="/login"
         >Log In</a>
-    {{/if}}
+        {{/if}}
       </ul>
     </nav>
     {{! main body }}
@@ -44,5 +44,8 @@
     <footer>
     </footer>
   </body>
+  {{#if loggedIn}}
+  <script src="/js/logout.js"></script>
+{{/if}}
 </html>
-<script src="/js/logout.js"></script>
+
