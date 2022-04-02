@@ -30,7 +30,7 @@ router.post("/", async (req, res) => {
       req.session.userId = newUser.id;
       req.session.username = newUser.username;
       req.session.loggedIn = true;
-      res.json({ newUser, message: "Thank you for joining" });
+      res.json(newUser);
     });
   } catch (error) {
     res.status(500).json(error);

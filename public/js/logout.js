@@ -7,8 +7,9 @@ const logout = async () => {
   //   If response is successful return to homepage
   if (response.ok) {
     document.location.replace("/");
+    alert("Logged out")
   } else {
-    alert(response.statusText);
+    alert("Failed to log out");
   }
 };
 // when user clicks logout button execute logout function

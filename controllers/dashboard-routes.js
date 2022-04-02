@@ -6,7 +6,6 @@ const withAuth = require("../utils/auth");
 
 router.get("/", withAuth, async (req, res) => {
   try {
-    console.log(req.session);
     // find all post data from the currently logged in user
     const postData = await Post.findAll({
       where: {
@@ -30,7 +29,7 @@ router.get("/", withAuth, async (req, res) => {
 });
 
 // When the user clicks on the post itself
-router.get("/edit/:id", async (req, res) => {
+router.get("/edit/:id", withAuth, async (req, res) => {
   try {
     // find the post via the id in the URL
     const postData = await Post.findOne({
@@ -41,11 +40,10 @@ router.get("/edit/:id", async (req, res) => {
     });
     // serialise the data
     const post = postData.get({ plain: true });
-    //
-    console.log(post);
-    console.log(post.title);
     res.render("edit-post", { post });
-  } catch (error) {}
+  } catch (error) {
+    res.redirect("login")
+  }
 });
 
 router.get("/create", withAuth, async (req, res) => {

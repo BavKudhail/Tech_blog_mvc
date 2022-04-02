@@ -14,7 +14,7 @@ router.get("/", async (req, res) => {
     // serialize the data
     const posts = postData.map((post) => post.get({ plain: true }));
     // render posts to homepage
-    res.render("homepage", { posts: posts, loggedin: req.session.loggedIn });
+    res.render("homepage", { posts, loggedin: req.session.loggedIn });
   } catch (error) {
     res.status(500).json(error);
   }
@@ -38,7 +38,7 @@ router.get("/post/:id", withAuth, async (req, res) => {
     // serialise the data
     const post = postData.get({ plain: true });
     // render post to front end
-    res.render("view-post", { post: post, loggedIn: req.session.loggedIn });
+    res.render("view-post", { post, loggedIn: req.session.loggedIn });
     console.log(post.user);
   } catch (error) {
     res.status(500).json(error);

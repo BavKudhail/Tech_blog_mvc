@@ -5,25 +5,20 @@ const signupFormHandler = async (event) => {
   const username = document.querySelector("#username-signup").value.trim();
   const password = document.querySelector("#password-signup").value.trim();
 
-  console.log(username);
-  console.log(password);
-
   console.log(`Signing up ${username}`);
 
   //   Send a POST request to the API endpoint
   const response = await fetch("/api/user", {
     method: "POST",
     body: JSON.stringify({
-      username: username,
-      password: password,
+      username,
+      password,
     }),
     headers: { "Content-Type": "application/json" },
   });
   if (response.ok) {
     console.log("SIGNED UP");
     // If successful, redirect the browser to the dashboard
-    // when we redirect user to the dashboard
-
     document.location.replace("/dashboard");
   } else {
     alert("Failed to sign up");

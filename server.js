@@ -4,12 +4,10 @@ const session = require("express-session");
 const exphbs = require("express-handlebars");
 const path = require("path");
 
-// 
-const { expressCspHeader, INLINE, NONE, SELF } = require('express-csp-header');
-
 
 // router
 const router = require("./controllers");
+
 // helper function
 const helpers = require("./utils/helpers");
 
@@ -52,16 +50,16 @@ app.set("view engine", "handlebars");
 // encode the data
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+// creating static folder
 app.use(express.static(path.join(__dirname, "public")));
 
 
 // router
 app.use(router);
 
-// when we have connected to sequelize only then listen to the
-sequelize.sync({ force: false }).then(() => {
-  console.log("connected to MySQL");
-  app.listen(PORT, () => {
-    console.log(`Now listening on http://localhost:${PORT}`);
-  });
-});
+
+// Listen to server
+app.listen(PORT, () => {
+  console.log(`App listening on port ${PORT}!`)
+  sequelize.sync({force: false})
+})
