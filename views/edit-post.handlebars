@@ -12,54 +12,43 @@
     </div>
   </div>
 </header>
-{{! edit your post }}
 
-<div class="form-container">
+{{! edit your post }}
+<div class="form-container justify-center items-center lg:mx-44">
   <form id="comment-form" action="">
     <input type="hidden" id="post-id" value="{{post.id}}" />
-    <label for="">Title</label>
-    <input id="new-post-title" value="{{post.title}}" type="text" />
-    <label for="">Content:</label>
-    <textarea
-      name=""
-      id="new-post-content"
-      cols="30"
-      rows="10"
-    >{{post.content}}</textarea>
-    <button class="submit-btn">Update Post</button>
-  </form>
-  <button class="delete-btn">Delete Post</button>
-</div>
-<script src="/js/editpost.js"></script>
-
-{{! creating a new post }}
-<div class="form-container justify-center items-center lg:mx-44">
-  <form id="comment-form" class="" action="">
-    <input type="hidden" value="{{post.id}}" />
     <div class="p-10">
       <div class="flex justify-center input-box">
         <input
-          id="new-post-title"
           class="input-field"
-          placeholder="Title: "
+          id="new-post-title"
+          value="{{post.title}}"
           type="text"
         />
       </div>
-      <div class="flex justify-center">
+      <div class="flex justify-center input-box">
         <textarea
+          class="input-field"
           name=""
-          placeholder="Type content here: "
           id="new-post-content"
           cols="30"
           rows="10"
-          class="input-field"
-        ></textarea>
+        >{{post.content}}</textarea>
       </div>
-      <div class="flex justify-center mt-5">
-        <button
-          class="submit-btn text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
-        >Create Post</button>
+      <div class="flex justify-between">
+        <div>
+          <button
+            class="submit-btn text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+          >Update Post</button>
+        </div>
+        <div>
+          <button
+            class="delete-btn text-white bg-gradient-to-br from-red-600 to-pink-500 hover:bg-gradient-to-bl rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+          >Delete Post</button>
+        </div>
       </div>
     </div>
   </form>
 </div>
+
+<script src="/js/editpost.js"></script>

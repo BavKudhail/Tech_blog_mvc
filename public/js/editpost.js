@@ -28,6 +28,7 @@ const commentFormHandler = async (event) => {
     });
     // If response is successful redirect user to dashboard else alert
     if (response.ok) {
+      console.log("POST HAS BEEN SUBMITTED");
       document.location.replace("/dashboard");
     } else {
       alert(response.statusText);
