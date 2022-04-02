@@ -1,13 +1,36 @@
-<form class="login-form" action="">
-  <div>
-    <label for="username-login">Username</label>
-    <input type="text" id="username-login" />
-  </div>
-  <div>
-    <label for="password-login">Password:</label>
-    <input type="password" id="password-login" />
-  </div>
-  <button type="submit">Submit</button>
-</form>
-<a href="/signup">Sign Up</a>
+<div class="custom-bg flex justify-center items-center">
+  <form class="login-form" action="">
+    <div>
+      <div class="my-8">
+        <span class="text-3xl font-bold">Log In</span>
+      </div>
+      <div>
+        <input
+          class="p-4 m-2 input-field"
+          type="text"
+          placeholder="enter username"
+          id="username-login"
+        />
+      </div>
+      <div>
+        <input
+          placeholder="enter password"
+          class="p-4 m-2 input-field"
+          type="password"
+          id="password-login"
+        />
+      </div>
+    </div>
+    <div class="flex justify-center mt-5">
+      <button
+        class="text-white bg-gradient-to-r from-pink-400 via-pink-500 to-pink-600 hover:bg-gradient-to-br font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+        type="submit"
+      >Login</button>
+    </div>
+    <div class="mt-4">
+      <span>Don't have an account?</span>
+      <a class="font-bold" href="/signup">Sign Up</a>
+    </div>
+  </form>
+</div>
 <script src="/js/login.js"></script>

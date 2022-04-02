@@ -26,7 +26,6 @@ router.post("/", async (req, res) => {
       password: req.body.password,
     });
     // save that user session
-    req.session.loggedIn = true;
     req.session.save(() => {
       req.session.userId = newUser.id;
       req.session.username = newUser.username;
@@ -59,13 +58,14 @@ router.post("/login", async (req, res) => {
       res.status(400).json({ message: "Oops. No account found!" });
       return;
     }
+
     // save session
     req.session.save(() => {
       req.session.userId = user.id;
       req.session.username = user.username;
       req.session.loggedIn = true;
-
-      res.json({ user, message: "Welcome back!" });
+      // send message
+      res.json({ user, message: "You are now logged in!" });
     });
   } catch (error) {
     res.status(400).json({ message: "Oops. No account found!" });
@@ -79,8 +79,6 @@ router.post("/logout", (req, res) => {
     req.session.destroy(() => {
       res.status(204).end();
     });
-    res.loggedIn = false;
-    res.send("user logged out");
     // if the user is not logged in
   } else {
     res.status(404).end();

@@ -4,6 +4,10 @@ const session = require("express-session");
 const exphbs = require("express-handlebars");
 const path = require("path");
 
+// 
+const { expressCspHeader, INLINE, NONE, SELF } = require('express-csp-header');
+
+
 // router
 const router = require("./controllers");
 // helper function
@@ -47,9 +51,9 @@ app.set("view engine", "handlebars");
 
 // encode the data
 app.use(express.json());
-// TODO - what exactly do the below code do?
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, "public")));
+
 
 // router
 app.use(router);

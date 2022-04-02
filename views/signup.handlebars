@@ -1,17 +1,41 @@
-<div>
-  <h1>Create an account</h1>
+{{! SIGN UP }}
+<div class="custom-bg flex justify-center items-center">
   <form class="signup-form" action="">
     <div>
-      <label for="username-signup">Username</label>
-      <input type="text" id="username-signup" />
+      <div class="my-8">
+        <span class="text-3xl font-bold">Sign Up</span>
+      </div>
+      <div>
+        {{! USERNAME SIGN UP }}
+        <input
+          class="p-4 m-2 input-field"
+          type="text"
+          placeholder="username"
+          id="username-signup"
+        />
+      </div>
+      <div>
+        {{! PASSWORD SIGN UP }}
+        <input
+          placeholder="password"
+          class="p-4 m-2 input-field"
+          type="password"
+          id="password-signup"
+        />
+      </div>
     </div>
-    <div>
-      <label for="password-signup">Password:</label>
-      <input type="password" id="password-signup" />
+    <div class="flex justify-center mt-5">
+      {{! SUBMIT BUTTON }}
+      <button
+        type="submit"
+        class="text-white bg-gradient-to-r from-pink-400 via-pink-500 to-pink-600 hover:bg-gradient-to-br font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+      >Sign Up</button>
     </div>
-    <button type="submit">Submit</button>
+    {{! LOGIN LINK }}
+    <div class="mt-4">
+      <span>Already have an account?</span>
+      <a class="font-bold" href="/login">Login</a>
+    </div>
   </form>
-  <a href="/login">Login</a>
 </div>
-
 <script src="/js/signup.js"></script>

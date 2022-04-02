@@ -1,15 +1,17 @@
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="#">
     <link rel="stylesheet" href="/css/style.css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Tech Blog</title>
   </head>
   <body>
     {{! navbar }}
-    <nav class="flex py-4 px-6 bg-white shadow justify-between">
+    <nav class="flex py-4 px-6 bg-white justify-between">
       <div class="m-2">
         <a href="/"><img src="/images/Techtab-logo.png" alt="" /></a>
       </div>
@@ -18,33 +20,28 @@
         <li class="mx-5 font-semibold"><a href="/dashboard">Dashboard</a></li>
         {{! ========  Conditionally render Login / Logout links ============= }}
         {{! @TODO DEBUG THIS }}
-        {{#if loggedIn}}
-          {{! logout button }}
-          <a
-            class="mx-5 text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl font-medium rounded-lg text-md px-5 py-2.5 text-center mr-2 mb-2"
-            id="logout"
-            href=""
-          >Logout</a>
-        {{else}}
-          {{! Login Button }}
-          <a
-            class="mx-5 text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:outline-none font-medium rounded-lg text-md px-5 py-2.5 text-center mr-2 mb-2"
-            id="logout"
-            href="/login"
-          >Log In</a>
-        {{/if}}
+
+        {{! logout button }}
+        <a
+          class="mx-5 text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl font-medium rounded-lg text-md px-5 py-2.5 text-center mr-2 mb-2"
+          id="logout"
+          href=""
+        >Logout</a>
+        {{! Login Button }}
+        <a
+          class="mx-5 text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:outline-none font-medium rounded-lg text-md px-5 py-2.5 text-center mr-2 mb-2"
+          id="logout"
+          href="/login"
+        >Log In</a>
+
       </ul>
     </nav>
     {{! main body }}
     <main>
       {{{body}}}
     </main>
-
     <footer>
-
     </footer>
-    <script src="/js/logout.js"></script>
-    <script src="/js/login.js"></script>
   </body>
-
 </html>
+<script src="/js/logout.js"></script>
