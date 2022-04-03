@@ -4,7 +4,6 @@
 
 ![Tech Blog (1)](https://user-images.githubusercontent.com/93915846/161428678-67c9abae-0949-4aac-aa35-6cc0efe6e986.gif)
 
-![Tech Blog (2)](https://user-images.githubusercontent.com/93915846/161428840-84071939-dd3a-4c10-a03b-1e2b253ff704.gif)
 
 
 
@@ -130,7 +129,7 @@ THEN I am signed out of the site ✅
   
   
   ## Screenshot
-  ![terminal screenshot](https://raw.githubusercontent.com/BavKudhail/Read-Me-Generator/main/assets/images/screenshot.JPG)
+![Tech Blog (1)](https://user-images.githubusercontent.com/93915846/161428678-67c9abae-0949-4aac-aa35-6cc0efe6e986.gif)
   
   
   ## Deployment
