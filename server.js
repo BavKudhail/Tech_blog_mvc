@@ -4,7 +4,6 @@ const session = require("express-session");
 const exphbs = require("express-handlebars");
 const path = require("path");
 
-
 // router
 const router = require("./controllers");
 
