@@ -9,7 +9,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <title>Tech Blog</title>
   </head>
-  <body>
+  <body class="background-gradient">
     {{! navbar }}
     <nav class="flex py-4 px-6 bg-white justify-between">
       <div class="m-2">
@@ -45,8 +45,6 @@
     <main>
       {{{body}}}
     </main>
-    <footer>
-    </footer>
   </body>
   {{#if loggedIn}}
   <script src="/js/logout.js"></script>
