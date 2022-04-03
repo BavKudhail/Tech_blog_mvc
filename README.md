@@ -2,7 +2,10 @@
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://techtab-blog.herokuapp.com/)
 
-<iframe src="https://drive.google.com/file/d/1eFQZrEMJDp80NATB3lbaPl2W5VfY514X/preview" width="640" height="480"></iframe>
+![Tech Blog (1)](https://user-images.githubusercontent.com/93915846/161428678-67c9abae-0949-4aac-aa35-6cc0efe6e986.gif)
+
+![Tech Blog (2)](https://user-images.githubusercontent.com/93915846/161428840-84071939-dd3a-4c10-a03b-1e2b253ff704.gif)
+
 
 
 ## The Goal
@@ -129,6 +132,9 @@ THEN I am signed out of the site ✅
   ## Screenshot
   ![terminal screenshot](https://raw.githubusercontent.com/BavKudhail/Read-Me-Generator/main/assets/images/screenshot.JPG)
   
+  
+  ## Deployment
+  [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://techtab-blog.herokuapp.com/)
 
 
   ## Contributing
