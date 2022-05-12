@@ -1,4 +1,4 @@
-# 14 Model-View-Controller (MVC): Tech Blog
+# Tech Blog
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://techtab-blog.herokuapp.com/)
 
