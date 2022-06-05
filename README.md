@@ -130,6 +130,8 @@ THEN I am signed out of the site ✅
   
   ## Screenshot
 ![Tech Blog (1)](https://user-images.githubusercontent.com/93915846/161428678-67c9abae-0949-4aac-aa35-6cc0efe6e986.gif)
+![image](https://user-images.githubusercontent.com/93915846/172046971-e4413efc-6fb6-4f1f-8c85-478809e61497.png)
+![image](https://user-images.githubusercontent.com/93915846/172046991-5b0701d7-dbca-4940-a30e-72a266746b69.png)
   
   
   ## Deployment
